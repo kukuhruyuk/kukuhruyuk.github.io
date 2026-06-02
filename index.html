@@ -214,14 +214,31 @@
     }
 
     /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .project-card {
       background: var(--surface); border: 1px solid var(--border);
-      padding: 1.8rem; border-radius: 4px;
+      border-radius: 4px;
       display: flex; flex-direction: column;
       transition: border-color 0.2s, transform 0.2s;
+      overflow: hidden;
     }
     .project-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
+    
+    .project-image {
+      width: 100%; height: 200px;
+      background: linear-gradient(135deg, rgba(0,229,160,0.1) 0%, rgba(124,106,255,0.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .project-image-placeholder {
+      color: var(--muted); font-size: 0.8rem; text-align: center;
+    }
+
+    .project-content { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
     .project-num {
       font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
       color: rgba(0,229,160,0.12); line-height: 1; margin-bottom: 0.8rem;
@@ -231,8 +248,8 @@
       font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 0.8rem;
     }
-    .project-desc { color: var(--muted); font-size: 0.8rem; flex: 1; }
-    .project-footer { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .project-desc { color: var(--muted); font-size: 0.8rem; flex: 1; margin-bottom: 1rem; }
+    .project-footer { padding-top: 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .project-link {
       text-decoration: none; color: var(--accent); font-size: 0.7rem;
       border: 1px solid rgba(0,229,160,0.3); padding: 0.4rem 0.8rem;
@@ -488,87 +505,117 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-num">01</div>
-          <div class="project-sector">Agri-tech</div>
-          <div class="project-title">AgriConnect</div>
-          <div class="project-desc">Mobile platform connecting farmers with suppliers and real-time market data. Implemented offline-first architecture for low-connectivity areas, serving 50K+ active users across Indonesia.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">MVVM</span>
-            <span class="skill-tag">Offline-first</span>
-            <span class="skill-tag">Firebase</span>
+          <div class="project-image">
+            <img src="images/project01.jpg" alt="AgriConnect">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">01</div>
+            <div class="project-sector">Agri-tech</div>
+            <div class="project-title">AgriConnect</div>
+            <div class="project-desc">Mobile platform connecting farmers with suppliers and real-time market data. Implemented offline-first architecture for low-connectivity areas, serving 50K+ active users across Indonesia.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">MVVM</span>
+              <span class="skill-tag">Offline-first</span>
+              <span class="skill-tag">Firebase</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-num">02</div>
-          <div class="project-sector">Fintech</div>
-          <div class="project-title">PayHub</div>
-          <div class="project-desc">Secure digital wallet and payment processing application. Built with end-to-end encryption, KYC integration, and complex transaction flows. Scaled to 100K+ users with zero critical incidents.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Clean Arch</span>
-            <span class="skill-tag">Encryption</span>
-            <span class="skill-tag">Retrofit</span>
+          <div class="project-image">
+            <img src="images/project02.jpg" alt="PayHub">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">02</div>
+            <div class="project-sector">Fintech</div>
+            <div class="project-title">PayHub</div>
+            <div class="project-desc">Secure digital wallet and payment processing application. Built with end-to-end encryption, KYC integration, and complex transaction flows. Scaled to 100K+ users with zero critical incidents.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Clean Arch</span>
+              <span class="skill-tag">Encryption</span>
+              <span class="skill-tag">Retrofit</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-num">03</div>
-          <div class="project-sector">Entertainment</div>
-          <div class="project-title">EntertainHub</div>
-          <div class="project-desc">Video streaming and casual gaming platform with real-time multiplayer features. Integrated adaptive streaming, push notifications, and social connectivity. 25K+ monthly active users.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">ExoPlayer</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">WebSocket</span>
+          <div class="project-image">
+            <img src="images/project03.jpg" alt="EntertainHub">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">03</div>
+            <div class="project-sector">Entertainment</div>
+            <div class="project-title">EntertainHub</div>
+            <div class="project-desc">Video streaming and casual gaming platform with real-time multiplayer features. Integrated adaptive streaming, push notifications, and social connectivity. 25K+ monthly active users.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">ExoPlayer</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">WebSocket</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-num">04</div>
-          <div class="project-sector">Healthcare</div>
-          <div class="project-title">HealthTrack</div>
-          <div class="project-desc">Telemedicine and appointment booking platform with prescription management. HIPAA-compliant security, real-time appointment syncing, and secure doctor-patient messaging.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">MVVM</span>
-            <span class="skill-tag">Security</span>
-            <span class="skill-tag">FCM</span>
+          <div class="project-image">
+            <img src="images/project04.jpg" alt="HealthTrack">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">04</div>
+            <div class="project-sector">Healthcare</div>
+            <div class="project-title">HealthTrack</div>
+            <div class="project-desc">Telemedicine and appointment booking platform with prescription management. HIPAA-compliant security, real-time appointment syncing, and secure doctor-patient messaging.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">MVVM</span>
+              <span class="skill-tag">Security</span>
+              <span class="skill-tag">FCM</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-num">05</div>
-          <div class="project-sector">Productivity</div>
-          <div class="project-title">TaskMaster</div>
-          <div class="project-desc">Team collaboration and task management app with real-time sync. Offline capabilities, time tracking analytics, and integrations with popular productivity tools.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Clean Arch</span>
-            <span class="skill-tag">WorkManager</span>
-            <span class="skill-tag">Socket.io</span>
+          <div class="project-image">
+            <img src="images/project05.jpg" alt="TaskMaster">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">05</div>
+            <div class="project-sector">Productivity</div>
+            <div class="project-title">TaskMaster</div>
+            <div class="project-desc">Team collaboration and task management app with real-time sync. Offline capabilities, time tracking analytics, and integrations with popular productivity tools.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Clean Arch</span>
+              <span class="skill-tag">WorkManager</span>
+              <span class="skill-tag">Socket.io</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-num">06</div>
-          <div class="project-sector">E-commerce</div>
-          <div class="project-title">LocalMarket</div>
-          <div class="project-desc">Hyperlocal marketplace connecting small businesses with consumers in real-time. Geolocation-based search, inventory sync, integrated payment gateway. 15K+ merchants, 100K+ transactions/month.</div>
-          <div class="project-footer">
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Maps API</span>
-            <span class="skill-tag">Stripe</span>
-            <span class="skill-tag">Analytics</span>
+          <div class="project-image">
+            <img src="images/project06.jpg" alt="LocalMarket">
           </div>
-          <a href="#" class="project-link">View case study →</a>
+          <div class="project-content">
+            <div class="project-num">06</div>
+            <div class="project-sector">E-commerce</div>
+            <div class="project-title">LocalMarket</div>
+            <div class="project-desc">Hyperlocal marketplace connecting small businesses with consumers in real-time. Geolocation-based search, inventory sync, integrated payment gateway. 15K+ merchants, 100K+ transactions/month.</div>
+            <div class="project-footer">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Maps API</span>
+              <span class="skill-tag">Stripe</span>
+              <span class="skill-tag">Analytics</span>
+            </div>
+            <a href="#" class="project-link">View case study →</a>
+          </div>
         </div>
 
       </div>

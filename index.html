@@ -187,11 +187,15 @@
       width: 2px; background: transparent; transition: background 0.2s;
     }
     .exp-item:hover::before { background: var(--accent); }
-    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 1rem; }
     .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
     .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.08em; white-space: nowrap; }
     .exp-company { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.8rem; }
-    .exp-desc { color: var(--muted); font-size: 0.82rem; line-height: 1.7; }
+    .exp-meta { color: var(--muted); font-size: 0.75rem; margin-bottom: 0.8rem; font-style: italic; }
+    .exp-desc { color: var(--muted); font-size: 0.82rem; line-height: 1.7; margin-bottom: 0.8rem; }
+    .exp-bullets { list-style: none; margin-left: 0; color: var(--muted); font-size: 0.82rem; }
+    .exp-bullets li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+    .exp-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
 
     /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
@@ -252,6 +256,18 @@
     .project-desc { color: var(--muted); font-size: 0.8rem; flex: 1; margin-bottom: 1rem; line-height: 1.6; }
     .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
 
+    /* ── EDUCATION ── */
+    .education-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .education-item {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.5rem; border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .education-item:hover { border-color: rgba(0,229,160,0.25); }
+    .education-school { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+    .education-degree { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.3rem; }
+    .education-year { color: var(--accent); font-size: 0.7rem; letter-spacing: 0.08em; }
+
     /* ── CONTACT ── */
     #contact {
       text-align: center;
@@ -268,7 +284,7 @@
       transition: border-color 0.2s;
     }
     .contact-email:hover { border-color: var(--accent); }
-    .social-row { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .social-row { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
     .social-btn {
       padding: 0.6rem 1.2rem; border: 1px solid var(--border);
       border-radius: 2px; text-decoration: none; color: var(--muted);
@@ -297,6 +313,7 @@
       .hero-stats { gap: 1.5rem; }
       #contact { padding: 4rem 1.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
+      .exp-header { flex-direction: column; }
     }
   </style>
 </head>
@@ -310,6 +327,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -320,7 +338,7 @@
     <div class="hero-inner">
       <div class="hero-tag">Available for opportunities</div>
       <h1>Kukuh<br><span>Arizki</span></h1>
-      <p class="hero-sub">Android Software Engineer crafting production-grade mobile apps for 10+ years. Agri-tech · Fintech · Entertainment.</p>
+      <p class="hero-sub">Android Software Engineer with 10+ years of hands-on experience building, shipping, and maintaining mobile applications. Pragmatic problem-solver focused on rapid delivery and functional reliability.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
         <a href="#projects" class="btn btn-ghost">View projects</a>
@@ -335,8 +353,8 @@
           <div class="stat-label">Users served</div>
         </div>
         <div>
-          <div class="stat-num">3</div>
-          <div class="stat-label">Industry sectors</div>
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Apps shipped</div>
         </div>
       </div>
     </div>
@@ -346,19 +364,19 @@
   <section id="about">
     <div class="reveal">
       <div class="section-label">// 01 — about</div>
-      <h2 class="section-title">Pragmatic.<br>Results-oriented.</h2>
+      <h2 class="section-title">Pragmatic &<br>Results-oriented.</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>I'm a hands-on Android Engineer with 10+ years of experience building, shipping, and maintaining mobile applications that people actually use.</p>
-          <p>My focus is practical problem-solving and rapid delivery without cutting corners on reliability. I've worked across agri-tech, fintech, and entertainment — each requiring very different tradeoffs.</p>
-          <p>I specialize in offline-first architecture, MVVM/Clean Architecture patterns, and untangling messy production issues under pressure.</p>
+          <p>Pragmatic and results-oriented Android Engineer with 10+ years of hands-on experience building, shipping, and maintaining mobile applications that people actually use.</p>
+          <p>Successfully developed apps serving 10,000–100,000+ users across agri-tech, fintech, and entertainment sectors. Strong focus on practical problem-solving, rapid delivery, and functional reliability.</p>
+          <p>Experienced in implementing offline-first solutions, applying MVVM/Clean Architecture principles, and troubleshooting complex issues in fast-paced production environments.</p>
         </div>
         <div class="about-contacts">
-          <a href="mailto:kukuh.arizki@gmail.com" class="contact-item">
-            <span class="contact-icon">@</span> kukuh.arizki@gmail.com
-          </a>
           <a href="tel:+6281395040800" class="contact-item">
             <span class="contact-icon">☎</span> +62 813-9504-0800
+          </a>
+          <a href="mailto:kukuh.arizki@gmail.com" class="contact-item">
+            <span class="contact-icon">@</span> kukuh.arizki@gmail.com
           </a>
           <a href="https://linkedin.com/in/kukuhruyuk" target="_blank" class="contact-item">
             <span class="contact-icon">in</span> linkedin.com/in/kukuhruyuk
@@ -380,38 +398,61 @@
 
         <div class="exp-item">
           <div class="exp-header">
-            <div class="exp-role">Senior Android Engineer</div>
-            <div class="exp-period">2021 — Present</div>
+            <div class="exp-role">Android Software Engineer</div>
+            <div class="exp-period">2022 — Present</div>
           </div>
-          <div class="exp-company">Company Name · Full-time</div>
-          <div class="exp-desc">Leading mobile engineering initiatives across multiple product lines. Architecting scalable Android solutions, mentoring junior engineers, and establishing best practices for code quality and performance.</div>
+          <div class="exp-company">Ekomoditi Solutions Indonesia</div>
+          <div class="exp-meta">Agri-Tech | Jakarta, Indonesia</div>
+          <ul class="exp-bullets">
+            <li>Built and maintained 3 production Android apps for palm oil field operations covering data collection, monitoring, and reporting, used by 100+ field agents in remote Sumatra.</li>
+            <li>Implemented an offline-first data sync mechanism using Room DB and WorkManager, significantly reducing data loss incidents in zero-connectivity areas.</li>
+            <li>Integrated Firebase Crashlytics to proactively monitor app stability and applied targeted bug fixes, cutting critical resolution time by 30%.</li>
+            <li>Applied MVVM and Clean Architecture principles to restructure existing code, making the codebase easier to maintain and update.</li>
+            <li>Collaborated daily with UX designers and backend engineers to ensure consistent feature delivery during bi-weekly sprints.</li>
+          </ul>
         </div>
 
         <div class="exp-item">
           <div class="exp-header">
-            <div class="exp-role">Android Engineer</div>
-            <div class="exp-period">2018 — 2021</div>
+            <div class="exp-role">Android Software Engineer</div>
+            <div class="exp-period">2021 — 2022</div>
           </div>
-          <div class="exp-company">Company Name · Full-time</div>
-          <div class="exp-desc">Developed fintech and agri-tech applications serving 50K+ users. Implemented offline-first sync mechanisms, payment integrations, and real-time data synchronization using MVVM and Clean Architecture.</div>
+          <div class="exp-company">Tokocrypto</div>
+          <div class="exp-meta">Fintech/Cryptocurrency | Jakarta, Indonesia</div>
+          <ul class="exp-bullets">
+            <li>Developed the "Kriptoversity" Android app for a crypto learning platform, serving 5,000+ active users engaging in courses and blockchain events.</li>
+            <li>Worked closely within a 15-person cross-functional team (engineers, product managers) in a fast-paced Agile/Scrum setup.</li>
+            <li>Executed practical performance optimizations, including memory management and lazy loading, which reduced the app's ANR rate by 25%.</li>
+          </ul>
         </div>
 
         <div class="exp-item">
           <div class="exp-header">
-            <div class="exp-role">Android Developer</div>
-            <div class="exp-period">2015 — 2018</div>
+            <div class="exp-role">Mobile Software Engineer</div>
+            <div class="exp-period">2015 — 2021</div>
           </div>
-          <div class="exp-company">Company Name · Full-time</div>
-          <div class="exp-desc">Built entertainment and marketplace applications from MVP to 100K+ downloads. Focused on user experience, performance optimization, and Firebase analytics integration.</div>
+          <div class="exp-company">Codelabs Indonesia</div>
+          <div class="exp-meta">Software Consulting | Jakarta, Indonesia</div>
+          <ul class="exp-bullets">
+            <li>Developed and shipped 10+ mobile applications across Android (Kotlin/Java), iOS (Swift), and Flutter for diverse client requirements over 6 years.</li>
+            <li>Managed end-to-end technical delivery from gathering initial requirements to Play Store / App Store deployment.</li>
+            <li>Translated client requirements into functional, accessible UIs adhering to Material Design and Apple HIG standards.</li>
+            <li>Supported junior developers with hands-on coding assistance and practical technical documentation.</li>
+          </ul>
         </div>
 
         <div class="exp-item">
           <div class="exp-header">
-            <div class="exp-role">Junior Android Developer</div>
-            <div class="exp-period">2013 — 2015</div>
+            <div class="exp-role">Mobile Software Engineer</div>
+            <div class="exp-period">2023 — 2025</div>
           </div>
-          <div class="exp-company">Company Name · Full-time</div>
-          <div class="exp-desc">Started Android journey building utility and productivity apps. Learned fundamentals of Android SDK, networking, databases, and shipped first production applications to Google Play Store.</div>
+          <div class="exp-company">So Drama Entertainment</div>
+          <div class="exp-meta">Entertainment (Freelance) | Remote</div>
+          <ul class="exp-bullets">
+            <li>Collaborated within a team to build and ship "Kakee", an Android entertainment app using Flutter/Dart, achieving 50,000+ installs on Google Play Store.</li>
+            <li>Optimized widget state management using Provider and BLoC to reduce application load times by 20%.</li>
+            <li>Handled user-reported bugs and executed iterative UX improvements, sustaining a 4.4-star rating on the Play Store.</li>
+          </ul>
         </div>
 
       </div>
@@ -430,7 +471,17 @@
           <div class="skill-tags">
             <span class="skill-tag">Kotlin</span>
             <span class="skill-tag">Java</span>
-            <span class="skill-tag">XML</span>
+            <span class="skill-tag">Swift</span>
+            <span class="skill-tag">Dart</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Mobile Frameworks</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Android SDK</span>
+            <span class="skill-tag">Flutter</span>
+            <span class="skill-tag">Jetpack Compose</span>
           </div>
         </div>
 
@@ -439,52 +490,61 @@
           <div class="skill-tags">
             <span class="skill-tag">MVVM</span>
             <span class="skill-tag">Clean Architecture</span>
-            <span class="skill-tag">MVI</span>
-            <span class="skill-tag">Repository Pattern</span>
+            <span class="skill-tag">Offline-First Design</span>
           </div>
         </div>
 
         <div class="skill-card">
           <div class="skill-card-title">Android Jetpack</div>
           <div class="skill-tags">
-            <span class="skill-tag">Compose</span>
-            <span class="skill-tag">Room</span>
+            <span class="skill-tag">Room DB</span>
+            <span class="skill-tag">LiveData</span>
+            <span class="skill-tag">ViewModel</span>
             <span class="skill-tag">WorkManager</span>
             <span class="skill-tag">Navigation</span>
-            <span class="skill-tag">ViewModel</span>
-            <span class="skill-tag">LiveData / Flow</span>
+            <span class="skill-tag">Paging 3</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-card-title">Libraries & Tools</div>
+          <div class="skill-card-title">Networking & API</div>
           <div class="skill-tags">
             <span class="skill-tag">Retrofit</span>
-            <span class="skill-tag">Hilt / Dagger</span>
-            <span class="skill-tag">Coroutines</span>
-            <span class="skill-tag">Glide / Coil</span>
             <span class="skill-tag">OkHttp</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">GraphQL</span>
+            <span class="skill-tag">WebSocket</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-card-title">Testing</div>
+          <div class="skill-card-title">Async & Reactive</div>
           <div class="skill-tags">
-            <span class="skill-tag">JUnit</span>
-            <span class="skill-tag">Espresso</span>
-            <span class="skill-tag">Mockk</span>
-            <span class="skill-tag">UI Automator</span>
+            <span class="skill-tag">Kotlin Coroutines</span>
+            <span class="skill-tag">Flow</span>
+            <span class="skill-tag">RxJava</span>
+            <span class="skill-tag">RxKotlin</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-card-title">DevOps & Tooling</div>
+          <div class="skill-card-title">Tools & DevOps</div>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">Gradle</span>
+            <span class="skill-tag">GitHub/GitLab</span>
             <span class="skill-tag">Jira</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Firebase Suite</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Crashlytics</span>
+            <span class="skill-tag">FCM</span>
+            <span class="skill-tag">Remote Config</span>
+            <span class="skill-tag">Analytics</span>
           </div>
         </div>
 
@@ -496,23 +556,23 @@
   <section id="projects">
     <div class="reveal">
       <div class="section-label">// 04 — projects</div>
-      <h2 class="section-title">Selected work.</h2>
+      <h2 class="section-title">Notable work.</h2>
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-image">
-            <img src="images/project01.jpg" alt="AgriConnect" onerror="this.style.display='none'">
+            <img src="images/ekomoditi.jpg" alt="Ekomoditi Apps" onerror="this.style.display='none'">
             <div class="project-image-placeholder" id="placeholder-01">No image yet</div>
           </div>
           <div class="project-content">
             <div class="project-num">01</div>
-            <div class="project-sector">Agri-tech</div>
-            <div class="project-title">AgriConnect</div>
-            <div class="project-desc">Mobile platform connecting farmers with suppliers and real-time market data. Implemented offline-first architecture for low-connectivity areas, serving 50K+ active users.</div>
+            <div class="project-sector">Agri-Tech</div>
+            <div class="project-title">Ekomoditi Field Apps</div>
+            <div class="project-desc">3 production Android apps for palm oil field operations. Built with offline-first sync using Room DB & WorkManager. Serving 100+ field agents in remote Sumatra with 30% faster critical bug resolution.</div>
             <div class="project-tags">
               <span class="skill-tag">Kotlin</span>
               <span class="skill-tag">MVVM</span>
-              <span class="skill-tag">Offline-first</span>
+              <span class="skill-tag">Room DB</span>
               <span class="skill-tag">Firebase</span>
             </div>
           </div>
@@ -520,97 +580,81 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="images/project02.jpg" alt="PayHub" onerror="this.style.display='none'">
+            <img src="images/kriptoversity.jpg" alt="Kriptoversity" onerror="this.style.display='none'">
             <div class="project-image-placeholder" id="placeholder-02">No image yet</div>
           </div>
           <div class="project-content">
             <div class="project-num">02</div>
             <div class="project-sector">Fintech</div>
-            <div class="project-title">PayHub</div>
-            <div class="project-desc">Secure digital wallet and payment processing application with end-to-end encryption, KYC integration, and complex transaction flows. Scaled to 100K+ users.</div>
+            <div class="project-title">Kriptoversity</div>
+            <div class="project-desc">Crypto learning platform serving 5,000+ active users. Executed performance optimizations reducing ANR rate by 25% through memory management and lazy loading strategies.</div>
             <div class="project-tags">
               <span class="skill-tag">Kotlin</span>
-              <span class="skill-tag">Clean Arch</span>
-              <span class="skill-tag">Encryption</span>
-              <span class="skill-tag">Retrofit</span>
+              <span class="skill-tag">Performance Optimization</span>
+              <span class="skill-tag">Agile/Scrum</span>
             </div>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-image">
-            <img src="images/project03.jpg" alt="EntertainHub" onerror="this.style.display='none'">
+            <img src="images/kakee.jpg" alt="Kakee App" onerror="this.style.display='none'">
             <div class="project-image-placeholder" id="placeholder-03">No image yet</div>
           </div>
           <div class="project-content">
             <div class="project-num">03</div>
             <div class="project-sector">Entertainment</div>
-            <div class="project-title">EntertainHub</div>
-            <div class="project-desc">Video streaming and casual gaming platform with real-time multiplayer features. Integrated adaptive streaming, push notifications, and social connectivity. 25K+ MAU.</div>
+            <div class="project-title">Kakee</div>
+            <div class="project-desc">Entertainment app built with Flutter/Dart achieving 50,000+ installs on Google Play. Optimized state management using Provider and BLoC, reducing load times by 20%. Maintained 4.4-star rating.</div>
             <div class="project-tags">
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">ExoPlayer</span>
-              <span class="skill-tag">Firebase</span>
-              <span class="skill-tag">WebSocket</span>
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">Dart</span>
+              <span class="skill-tag">Provider/BLoC</span>
+              <span class="skill-tag">Performance</span>
             </div>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-image">
-            <img src="images/project04.jpg" alt="HealthTrack" onerror="this.style.display='none'">
+            <img src="images/codelabs.jpg" alt="Codelabs Projects" onerror="this.style.display='none'">
             <div class="project-image-placeholder" id="placeholder-04">No image yet</div>
           </div>
           <div class="project-content">
             <div class="project-num">04</div>
-            <div class="project-sector">Healthcare</div>
-            <div class="project-title">HealthTrack</div>
-            <div class="project-desc">Telemedicine and appointment booking platform with prescription management. HIPAA-compliant security, real-time appointment syncing, and secure doctor-patient messaging.</div>
+            <div class="project-sector">Consulting</div>
+            <div class="project-title">10+ Codelabs Projects</div>
+            <div class="project-desc">Developed and shipped 10+ mobile applications across Android, iOS, and Flutter. End-to-end delivery from requirements to App/Play Store deployment with Material Design and HIG compliance.</div>
             <div class="project-tags">
               <span class="skill-tag">Kotlin</span>
-              <span class="skill-tag">MVVM</span>
-              <span class="skill-tag">Security</span>
-              <span class="skill-tag">FCM</span>
+              <span class="skill-tag">Swift</span>
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">Full-Stack</span>
             </div>
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-image">
-            <img src="images/project05.jpg" alt="TaskMaster" onerror="this.style.display='none'">
-            <div class="project-image-placeholder" id="placeholder-05">No image yet</div>
-          </div>
-          <div class="project-content">
-            <div class="project-num">05</div>
-            <div class="project-sector">Productivity</div>
-            <div class="project-title">TaskMaster</div>
-            <div class="project-desc">Team collaboration and task management app with real-time sync. Offline capabilities, time tracking analytics, and integrations with popular productivity tools.</div>
-            <div class="project-tags">
-              <span class="skill-tag">Kotlin</span>
-              <span class="skill-tag">Clean Arch</span>
-              <span class="skill-tag">WorkManager</span>
-              <span class="skill-tag">Socket.io</span>
-            </div>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="reveal">
+      <div class="section-label">// 05 — education</div>
+      <h2 class="section-title">Formal learning.</h2>
+      <div class="education-list">
+
+        <div class="education-item">
+          <div class="education-school">Politeknik Piksi Ganesha</div>
+          <div class="education-degree">Associate Degree (D3) — Informatics Management</div>
+          <div class="education-year">2011</div>
         </div>
 
-        <div class="project-card">
-          <div class="project-image">
-            <img src="images/project06.jpg" alt="LocalMarket" onerror="this.style.display='none'">
-            <div class="project-image-placeholder" id="placeholder-06">No image yet</div>
-          </div>
-          <div class="project-content">
-            <div class="project-num">06</div>
-            <div class="project-sector">E-commerce</div>
-            <div class="project-title">LocalMarket</div>
-            <div class="project-desc">Hyperlocal marketplace connecting small businesses with consumers in real-time. Geolocation-based search, inventory sync, integrated payment gateway. 15K+ merchants.</div>
-            <div class="project-tags">
-              <span class="skill-tag">Kotlin</span>
-              <span class="skill-tag">Maps API</span>
-              <span class="skill-tag">Stripe</span>
-              <span class="skill-tag">Analytics</span>
-            </div>
-          </div>
+        <div class="education-item">
+          <div class="education-school">SMK MedikaCom</div>
+          <div class="education-degree">Vocational High School — Software Engineering</div>
+          <div class="education-year">2007 — 2010</div>
         </div>
 
       </div>
@@ -620,9 +664,9 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="reveal contact-wrapper">
-      <div class="section-label">// 05 — contact</div>
+      <div class="section-label">// 06 — contact</div>
       <h2 class="section-title">Let's work<br>together.</h2>
-      <p style="color:var(--muted); margin-bottom:2rem;">Open to new opportunities, collaborations, or just a good conversation about Android development.</p>
+      <p style="color:var(--muted); margin-bottom:2rem;">Open to new opportunities, collaborations, or just a good conversation about Android development and pragmatic engineering practices.</p>
       <a href="mailto:kukuh.arizki@gmail.com" class="contact-email">kukuh.arizki@gmail.com</a>
       <div class="social-row">
         <a href="https://linkedin.com/in/kukuhruyuk" target="_blank" class="social-btn">LinkedIn</a>

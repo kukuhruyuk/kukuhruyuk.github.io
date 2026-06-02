@@ -1,209 +1,606 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Kukuh Arizki - Mobile Software Engineer</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kukuh Arizki — Android Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #16161f;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00e5a0;
+      --accent2: #7c6aff;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --tag-bg: rgba(0,229,160,0.08);
+    }
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-mobile"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Kukuh Arizki</h1>
-								<p>Mobile Software Engineer | Android Specialist<br />
-								Building robust, scalable mobile applications with 10+ years of experience</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">About</a></li>
-								<li><a href="#work">Projects</a></li>
-								<li><a href="#about">Experience</a></li>
-								<li><a href="#contact">Contact</a></li>
-							</ul>
-						</nav>
-					</header>
+    html { scroll-behavior: smooth; }
 
-				<!-- Main -->
-					<div id="main">
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">About Me</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="Mobile Development" /></span>
-								<p>Pragmatic and results-oriented Android Engineer with 10+ years of hands-on experience building, shipping, and maintaining mobile applications. I specialize in creating high-performance, user-centric mobile solutions that solve real-world problems.</p>
-								<p>Successfully developed apps serving 10,000–100,000+ users across agri-tech, fintech, and entertainment sectors. Strong focus on practical problem-solving, rapid delivery, and functional reliability. Experienced in implementing offline-first solutions, applying MVVM/Clean Architecture principles, and troubleshooting complex issues in fast-paced production environments.</p>
-								<p><strong>Key Strengths:</strong> Android Development, Architecture Design, Code Quality, Performance Optimization, Agile Methodologies, and Cross-functional Collaboration</p>
-							</article>
+    /* noise overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Featured Projects</h2>
-								<p>A curated selection of mobile applications I've developed, focusing on user impact and technical excellence.</p>
-								
-								<div style="margin-bottom: 3em;">
-									<h3>1. AgriConnect - Agri-Tech Platform</h3>
-									<span class="image main"><img src="images/project01.jpg" alt="AgriConnect" /></span>
-									<p><strong>Overview:</strong> Mobile application connecting farmers with suppliers and market data in real-time.</p>
-									<p><strong>Features:</strong> Offline-first architecture, real-time pricing updates, user base: 50,000+</p>
-									<p><strong>Tech Stack:</strong> Kotlin, MVVM, Room Database, Firebase, Retrofit</p>
-									<p><strong>Role:</strong> Lead Android Developer | <a href="#">View on GitHub</a></p>
-								</div>
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
 
-								<div style="margin-bottom: 3em;">
-									<h3>2. PayHub - Fintech Payment App</h3>
-									<span class="image main"><img src="images/project02.jpg" alt="PayHub" /></span>
-									<p><strong>Overview:</strong> Secure digital wallet and payment processing application for emerging markets.</p>
-									<p><strong>Features:</strong> End-to-end encryption, KYC integration, user base: 100,000+</p>
-									<p><strong>Tech Stack:</strong> Kotlin, Clean Architecture, Coroutines, Jetpack Security, OkHttp</p>
-									<p><strong>Role:</strong> Senior Android Developer | <a href="#">View on GitHub</a></p>
-								</div>
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; place-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,229,160,0.06) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 860px; width: 100%; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--tag-bg); border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent); padding: 0.3rem 0.9rem;
+      border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag::before { content: '●'; font-size: 0.5rem; animation: blink 1.4s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-								<div style="margin-bottom: 3em;">
-									<h3>3. EntertainHub - Streaming & Gaming</h3>
-									<span class="image main"><img src="images/project03.jpg" alt="EntertainHub" /></span>
-									<p><strong>Overview:</strong> Video streaming and casual gaming platform with social features.</p>
-									<p><strong>Features:</strong> Adaptive streaming, in-app multiplayer, push notifications, user base: 25,000+</p>
-									<p><strong>Tech Stack:</strong> Kotlin, ExoPlayer, Firebase Realtime DB, Jetpack Compose experimentation</p>
-									<p><strong>Role:</strong> Android Developer | <a href="#">View on GitHub</a></p>
-								</div>
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 span { color: var(--accent); }
 
-								<div style="margin-bottom: 3em;">
-									<h3>4. HealthTrack - Medical Appointment App</h3>
-									<span class="image main"><img src="images/project04.jpg" alt="HealthTrack" /></span>
-									<p><strong>Overview:</strong> Telemedicine and healthcare appointment booking platform with prescription management.</p>
-									<p><strong>Features:</strong> Real-time appointment syncing, prescription history, HIPAA-compliant security</p>
-									<p><strong>Tech Stack:</strong> Kotlin, MVVM, Retrofit, Room, FCM</p>
-									<p><strong>Role:</strong> Android Developer | <a href="#">View on GitHub</a></p>
-								</div>
+    .hero-sub {
+      font-size: 1rem; color: var(--muted); max-width: 520px;
+      margin-bottom: 2.5rem; line-height: 1.8;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
 
-								<div style="margin-bottom: 3em;">
-									<h3>5. TaskMaster - Productivity & Collaboration</h3>
-									<span class="image main"><img src="images/project05.jpg" alt="TaskMaster" /></span>
-									<p><strong>Overview:</strong> Team productivity app with task management, real-time collaboration, and time tracking.</p>
-									<p><strong>Features:</strong> Offline sync, team notifications, time analytics, integration with popular tools</p>
-									<p><strong>Tech Stack:</strong> Kotlin, Clean Architecture, LiveData, WorkManager, Socket.io</p>
-									<p><strong>Role:</strong> Lead Developer | <a href="#">View on GitHub</a></p>
-								</div>
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.8rem;
+      text-decoration: none; font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 2px; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent); color: #0a0a0f; font-weight: 600;
+    }
+    .btn-primary:hover { background: #00ffc0; transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-								<div style="margin-bottom: 3em;">
-									<h3>6. LocalMarket - E-Commerce Marketplace</h3>
-									<span class="image main"><img src="images/project06.jpg" alt="LocalMarket" /></span>
-									<p><strong>Overview:</strong> Hyperlocal marketplace connecting small businesses with consumers in real-time.</p>
-									<p><strong>Features:</strong> Real-time inventory, geolocation-based search, integrated payment gateway, user base: 15,000+</p>
-									<p><strong>Tech Stack:</strong> Kotlin, MVVM, Google Maps API, Stripe Integration, Firebase Analytics</p>
-									<p><strong>Role:</strong> Senior Android Developer | <a href="#">View on GitHub</a></p>
-								</div>
-							</article>
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--accent); line-height: 1;
+    }
+    .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; margin-top: 0.3rem; }
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">Professional Experience</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="Experience" /></span>
-								
-								<h3>Core Competencies</h3>
-								<ul>
-									<li><strong>Mobile Development:</strong> Android (Java/Kotlin), iOS experience, Cross-platform architecture</li>
-									<li><strong>Architecture & Design:</strong> MVVM, Clean Architecture, Dependency Injection, Design Patterns</li>
-									<li><strong>Databases:</strong> SQLite, Room, Firebase Firestore, PostgreSQL</li>
-									<li><strong>APIs & Networking:</strong> REST, GraphQL, Retrofit, OkHttp, Socket.io</li>
-									<li><strong>Cloud & Backend:</strong> Firebase, AWS, Google Cloud Platform</li>
-									<li><strong>Development Practices:</strong> Git, CI/CD, Agile/Scrum, Code Review, Testing (Unit, Integration, UI)</li>
-									<li><strong>Performance Optimization:</strong> Memory management, Battery optimization, Network optimization</li>
-									<li><strong>Security:</strong> Data encryption, Secure authentication, OWASP compliance</li>
-								</ul>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-								<h3>Career Highlights</h3>
-								<ul>
-									<li>10+ years of professional Android development experience</li>
-									<li>Led development of 6+ production applications with user bases ranging from 10K to 100K+</li>
-									<li>Successfully shipped MVP to production in aggressive timelines (4-8 weeks)</li>
-									<li>Mentored junior developers and conducted code reviews to maintain code quality</li>
-									<li>Implemented offline-first architecture serving users in low-connectivity areas</li>
-									<li>Reduced app crash rate by 85% through systematic debugging and optimization</li>
-									<li>Established coding standards and best practices for mobile team</li>
-								</ul>
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
 
-								<h3>Education & Certifications</h3>
-								<p>Bachelor's Degree in Computer Science | Android Development Certifications | Cloud Architecture Specialist</p>
-							</article>
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700; letter-spacing: -0.03em;
+      margin-bottom: 3rem; line-height: 1.1;
+    }
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Get In Touch</h2>
-								<p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
-								
-								<form method="POST" action="https://formspree.io/f/xyzpqabc">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" required />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="email" name="email" id="email" required />
-										</div>
-										<div class="field">
-											<label for="subject">Subject</label>
-											<input type="text" name="subject" id="subject" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4" required></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .about-contacts { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; text-decoration: none; color: var(--text);
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-icon { color: var(--accent); font-size: 0.9rem; width: 1.2rem; text-align: center; }
 
-								<h3>Connect With Me</h3>
-								<ul class="icons">
-									<li><a href="https://github.com/kukuhruyuk" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/kukuhruyuk" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="mailto:kukuh.arizki@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5px; }
+    .exp-item {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.8rem 2rem; position: relative;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .exp-item:first-child { border-radius: 4px 4px 0 0; }
+    .exp-item:last-child { border-radius: 0 0 4px 4px; }
+    .exp-item:hover { border-color: rgba(0,229,160,0.3); background: var(--surface2); }
+    .exp-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: transparent; transition: background 0.2s;
+    }
+    .exp-item:hover::before { background: var(--accent); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+    .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
+    .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.08em; white-space: nowrap; }
+    .exp-company { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.8rem; }
+    .exp-desc { color: var(--muted); font-size: 0.82rem; line-height: 1.7; }
 
-								<h3>Contact Information</h3>
-								<p><strong>Email:</strong> <a href="mailto:kukuh.arizki@gmail.com">kukuh.arizki@gmail.com</a></p>
-								<p><strong>GitHub:</strong> <a href="https://github.com/kukuhruyuk">github.com/kukuhruyuk</a></p>
-								<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kukuhruyuk">linkedin.com/in/kukuhruyuk</a></p>
-							</article>
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.5rem; border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: rgba(0,229,160,0.25); }
+    .skill-card-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.85rem; margin-bottom: 1rem; color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      background: var(--tag-bg); border: 1px solid rgba(0,229,160,0.15);
+      color: var(--text); padding: 0.25rem 0.65rem;
+      border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.05em;
+    }
 
-					</div>
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.8rem; border-radius: 4px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
+    .project-num {
+      font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
+      color: rgba(0,229,160,0.12); line-height: 1; margin-bottom: 0.8rem;
+    }
+    .project-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+    .project-sector {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.8rem;
+    }
+    .project-desc { color: var(--muted); font-size: 0.8rem; flex: 1; }
+    .project-footer { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .project-link {
+      text-decoration: none; color: var(--accent); font-size: 0.7rem;
+      border: 1px solid rgba(0,229,160,0.3); padding: 0.4rem 0.8rem;
+      border-radius: 2px; display: inline-block; transition: all 0.2s;
+      margin-top: 0.8rem;
+    }
+    .project-link:hover { border-color: var(--accent); background: rgba(0,229,160,0.1); }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Kukuh Arizki. Portfolio Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding: 6rem 4rem;
+    }
+    .contact-wrapper { max-width: 560px; margin: 0 auto; }
+    .contact-email {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 700; color: var(--accent);
+      text-decoration: none; letter-spacing: -0.02em;
+      border-bottom: 1px solid rgba(0,229,160,0.3);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.2s;
+    }
+    .contact-email:hover { border-color: var(--accent); }
+    .social-row { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .social-btn {
+      padding: 0.6rem 1.2rem; border: 1px solid var(--border);
+      border-radius: 2px; text-decoration: none; color: var(--muted);
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-			</div>
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em;
+    }
 
-		<!-- BG -->
-			<div id="bg"></div>
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      #contact { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
 
-	</body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">KA/</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Available for opportunities</div>
+      <h1>Kukuh<br><span>Arizki</span></h1>
+      <p class="hero-sub">Android Software Engineer crafting production-grade mobile apps for 10+ years. Agri-tech · Fintech · Entertainment.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#projects" class="btn btn-ghost">View projects</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years experience</div>
+        </div>
+        <div>
+          <div class="stat-num">100K+</div>
+          <div class="stat-label">Users served</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Industry sectors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="reveal">
+      <div class="section-label">// 01 — about</div>
+      <h2 class="section-title">Pragmatic.<br>Results-oriented.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a hands-on Android Engineer with 10+ years of experience building, shipping, and maintaining mobile applications that people actually use.</p>
+          <p>My focus is practical problem-solving and rapid delivery without cutting corners on reliability. I've worked across agri-tech, fintech, and entertainment — each requiring very different tradeoffs.</p>
+          <p>I specialize in offline-first architecture, MVVM/Clean Architecture patterns, and untangling messy production issues under pressure.</p>
+        </div>
+        <div class="about-contacts">
+          <a href="mailto:kukuh.arizki@gmail.com" class="contact-item">
+            <span class="contact-icon">@</span> kukuh.arizki@gmail.com
+          </a>
+          <a href="tel:+6281395040800" class="contact-item">
+            <span class="contact-icon">☎</span> +62 813-9504-0800
+          </a>
+          <a href="https://linkedin.com/in/kukuhruyuk" target="_blank" class="contact-item">
+            <span class="contact-icon">in</span> linkedin.com/in/kukuhruyuk
+          </a>
+          <a class="contact-item" style="cursor:default;">
+            <span class="contact-icon">◉</span> Bandung, Indonesia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="reveal">
+      <div class="section-label">// 02 — experience</div>
+      <h2 class="section-title">Work history.</h2>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Android Engineer</div>
+            <div class="exp-period">2021 — Present</div>
+          </div>
+          <div class="exp-company">Company Name · Full-time</div>
+          <div class="exp-desc">Leading mobile engineering initiatives across multiple product lines. Architecting scalable Android solutions, mentoring junior engineers, and establishing best practices for code quality and performance.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Android Engineer</div>
+            <div class="exp-period">2018 — 2021</div>
+          </div>
+          <div class="exp-company">Company Name · Full-time</div>
+          <div class="exp-desc">Developed fintech and agri-tech applications serving 50K+ users. Implemented offline-first sync mechanisms, payment integrations, and real-time data synchronization using MVVM and Clean Architecture.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Android Developer</div>
+            <div class="exp-period">2015 — 2018</div>
+          </div>
+          <div class="exp-company">Company Name · Full-time</div>
+          <div class="exp-desc">Built entertainment and marketplace applications from MVP to 100K+ downloads. Focused on user experience, performance optimization, and Firebase analytics integration.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Junior Android Developer</div>
+            <div class="exp-period">2013 — 2015</div>
+          </div>
+          <div class="exp-company">Company Name · Full-time</div>
+          <div class="exp-desc">Started Android journey building utility and productivity apps. Learned fundamentals of Android SDK, networking, databases, and shipped first production applications to Google Play Store.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="reveal">
+      <div class="section-label">// 03 — skills</div>
+      <h2 class="section-title">Tech stack.</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-title">Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">XML</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Architecture</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MVVM</span>
+            <span class="skill-tag">Clean Architecture</span>
+            <span class="skill-tag">MVI</span>
+            <span class="skill-tag">Repository Pattern</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Android Jetpack</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Compose</span>
+            <span class="skill-tag">Room</span>
+            <span class="skill-tag">WorkManager</span>
+            <span class="skill-tag">Navigation</span>
+            <span class="skill-tag">ViewModel</span>
+            <span class="skill-tag">LiveData / Flow</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Libraries & Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Retrofit</span>
+            <span class="skill-tag">Hilt / Dagger</span>
+            <span class="skill-tag">Coroutines</span>
+            <span class="skill-tag">Glide / Coil</span>
+            <span class="skill-tag">OkHttp</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">Testing</div>
+          <div class="skill-tags">
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">Espresso</span>
+            <span class="skill-tag">Mockk</span>
+            <span class="skill-tag">UI Automator</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-title">DevOps & Tooling</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Gradle</span>
+            <span class="skill-tag">Jira</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="reveal">
+      <div class="section-label">// 04 — projects</div>
+      <h2 class="section-title">Selected work.</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <div class="project-sector">Agri-tech</div>
+          <div class="project-title">AgriConnect</div>
+          <div class="project-desc">Mobile platform connecting farmers with suppliers and real-time market data. Implemented offline-first architecture for low-connectivity areas, serving 50K+ active users across Indonesia.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">MVVM</span>
+            <span class="skill-tag">Offline-first</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <div class="project-sector">Fintech</div>
+          <div class="project-title">PayHub</div>
+          <div class="project-desc">Secure digital wallet and payment processing application. Built with end-to-end encryption, KYC integration, and complex transaction flows. Scaled to 100K+ users with zero critical incidents.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Clean Arch</span>
+            <span class="skill-tag">Encryption</span>
+            <span class="skill-tag">Retrofit</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <div class="project-sector">Entertainment</div>
+          <div class="project-title">EntertainHub</div>
+          <div class="project-desc">Video streaming and casual gaming platform with real-time multiplayer features. Integrated adaptive streaming, push notifications, and social connectivity. 25K+ monthly active users.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">ExoPlayer</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">WebSocket</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <div class="project-sector">Healthcare</div>
+          <div class="project-title">HealthTrack</div>
+          <div class="project-desc">Telemedicine and appointment booking platform with prescription management. HIPAA-compliant security, real-time appointment syncing, and secure doctor-patient messaging.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">MVVM</span>
+            <span class="skill-tag">Security</span>
+            <span class="skill-tag">FCM</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">05</div>
+          <div class="project-sector">Productivity</div>
+          <div class="project-title">TaskMaster</div>
+          <div class="project-desc">Team collaboration and task management app with real-time sync. Offline capabilities, time tracking analytics, and integrations with popular productivity tools.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Clean Arch</span>
+            <span class="skill-tag">WorkManager</span>
+            <span class="skill-tag">Socket.io</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">06</div>
+          <div class="project-sector">E-commerce</div>
+          <div class="project-title">LocalMarket</div>
+          <div class="project-desc">Hyperlocal marketplace connecting small businesses with consumers in real-time. Geolocation-based search, inventory sync, integrated payment gateway. 15K+ merchants, 100K+ transactions/month.</div>
+          <div class="project-footer">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Maps API</span>
+            <span class="skill-tag">Stripe</span>
+            <span class="skill-tag">Analytics</span>
+          </div>
+          <a href="#" class="project-link">View case study →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal contact-wrapper">
+      <div class="section-label">// 05 — contact</div>
+      <h2 class="section-title">Let's work<br>together.</h2>
+      <p style="color:var(--muted); margin-bottom:2rem;">Open to new opportunities, collaborations, or just a good conversation about Android development.</p>
+      <a href="mailto:kukuh.arizki@gmail.com" class="contact-email">kukuh.arizki@gmail.com</a>
+      <div class="social-row">
+        <a href="https://linkedin.com/in/kukuhruyuk" target="_blank" class="social-btn">LinkedIn</a>
+        <a href="https://github.com/kukuhruyuk" target="_blank" class="social-btn">GitHub</a>
+        <a href="tel:+6281395040800" class="social-btn">Call / WA</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Kukuh Arizki · Built with HTML/CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>
